@@ -1,17 +1,17 @@
 import Home from "./Home";
 import "./Welcome.css";
-import { useNavigate } from "react-router-dom";
 
 
-export default function Welcome() {
-    const navigate = useNavigate();
+export default function Welcome({ onNavigate }) {
 
     return (
         <div className="page">
             {/* LEFT PANEL */}
             <section className="left-panel">
-                <div className="logo-box">
-                    <div className="logo-icon">B</div>
+                <div className="welcome-logo-box">
+                    <div className="logo-icon">
+                        <i className="fas fa-store"></i>
+                    </div>
                     <span className="logo-text">BillMaster</span>
                 </div>
 
@@ -56,7 +56,7 @@ export default function Welcome() {
 
                     <div className="btn-stack">
                         <button
-                            onClick={() => navigate("/home")}
+                            onClick={() => onNavigate("Home")}
                             className="btn btn-signin"
                         >
                             Sign In
@@ -67,9 +67,12 @@ export default function Welcome() {
                             <span>OR</span>
                         </div>
 
-                        <a href="#" className="btn btn-signup">
+                        <button
+                            onClick={() => onNavigate("SignUp")}
+                            className="btn btn-signup"
+                        >
                             Sign Up
-                        </a>
+                        </button>
                     </div>
 
                     <p className="footer-link">

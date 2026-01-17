@@ -282,3 +282,196 @@
         flex-wrap: wrap;
     }
 }
+
+/* --- Error Popup Styles --- */
+.error-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.error-popup {
+    background: white;
+    padding: 40px 50px;
+    border-radius: 24px;
+    text-align: center;
+    max-width: 400px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.error-icon {
+    font-size: 3rem;
+    margin-bottom: 16px;
+}
+
+.error-popup h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--navy-dark);
+    margin-bottom: 12px;
+}
+
+.error-popup p {
+    color: var(--slate-text);
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 24px;
+}
+
+.error-close-btn {
+    background: #ef4444;
+    color: white;
+    border: none;
+    padding: 14px 40px;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.error-close-btn:hover {
+    background: #dc2626;
+    transform: translateY(-2px);
+}
+
+/* ====== SIGNUP PAGE STYLES ====== */
+.signup-panel {
+    overflow-y: auto;
+}
+
+.signup-card {
+    max-width: 520px;
+    padding: 40px 50px;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.card-subtitle {
+    color: var(--slate-text);
+    font-size: 0.95rem;
+    margin-bottom: 24px;
+}
+
+.signup-form {
+    gap: 16px;
+}
+
+.form-section {
+    margin-bottom: 8px;
+}
+
+.section-title {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--teal-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.form-select {
+    appearance: none;
+    cursor: pointer;
+    padding-right: 40px;
+}
+
+.select-arrow {
+    position: absolute;
+    right: 16px;
+    color: #94a3b8;
+    pointer-events: none;
+}
+
+.btn-signup {
+    margin-top: 16px;
+}
+
+.signin-link {
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--slate-text);
+    margin-top: 16px;
+}
+
+.signin-link .link {
+    color: var(--teal-primary);
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.signin-link .link:hover {
+    text-decoration: underline;
+}
+
+/* Success Popup */
+.success-popup {
+    border: 2px solid #10b981;
+}
+
+.success-icon {
+    font-size: 3rem;
+    margin-bottom: 16px;
+}
+
+.success-close-btn {
+    background: var(--teal-primary);
+}
+
+.success-close-btn:hover {
+    background: var(--teal-hover);
+}
+
+/* Scrollbar styling for signup form */
+.signup-card::-webkit-scrollbar {
+    width: 6px;
+}
+
+.signup-card::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 3px;
+}
+
+.signup-card::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 3px;
+}
+
+.signup-card::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}

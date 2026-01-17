@@ -2,15 +2,26 @@ import React, { useState } from "react";
 import "./Home.css";
 import { Mail, Lock, Store, Clock, FileText, Activity } from "lucide-react";
 
-export default function Home({ onNavigate }) {
+export default function Home({ onLogin, userdata }) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [showError, setShowError] = useState(false);
+
+    // Map roles to their dashboard pages
+    const roleToDashboard = {
+        cashier: "CashierDashboard",
+        manager: "ManagerDashboard",
+        admin: "Dashboard"
+    };
 
     const handleLogin = (e) => {
         e.preventDefault();
-        // Simulate login logic
-        if (email && password) {
-            onNavigate("Dashboard");
+        const user = userdata.find(u => u.email === email && u.password === password);
+        if (user) {
+            setShowError(false);
+            onLogin(user, roleToDashboard[user.role]);
+        } else {
+            setShowError(true);
         }
     };
 
@@ -110,6 +121,20 @@ export default function Home({ onNavigate }) {
                     </form>
                 </div>
             </section>
+
+            {/* Error Popup */}
+            {showError && (
+                <div className="error-overlay" onClick={() => setShowError(false)}>
+                    <div className="error-popup" onClick={(e) => e.stopPropagation()}>
+                        <div className="error-icon">❌</div>
+                        <h3>Invalid Credentials</h3>
+                        <p>The email or password you entered is incorrect. Please try again.</p>
+                        <button className="error-close-btn" onClick={() => setShowError(false)}>
+                            Close
+                        </button>
+                    </div>
+                </div>
+            )}
         </div>
     );
 }

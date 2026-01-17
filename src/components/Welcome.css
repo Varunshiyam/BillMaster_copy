@@ -49,7 +49,7 @@
             transparent 70%);
 }
 
-.logo-box {
+.welcome-logo-box {
     display: flex;
     align-items: center;
     gap: 12px;
@@ -57,15 +57,14 @@
 }
 
 .logo-icon {
-    background: var(--teal);
-    color: var(--navy);
-    width: 42px;
-    height: 42px;
-    border-radius: 10px;
+    background: none;
+    color: var(--teal);
+    width: auto;
+    height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: 800;
+    font-size: 50px;
 }
 
 .logo-text {

@@ -10,7 +10,7 @@ const PRODUCTS = [
   { sku: "1004", name: "Amul Milk 500ml", price: 28, cat: "Dairy", icon: "🥛" },
 ];
 
-export default function POS({ onNavigate }) {
+export default function ManagerPOS({ onNavigate }) {
   const [cart, setCart] = useState({});
   const [heldCarts, setHeldCarts] = useState([]); // State for held carts
   const [search, setSearch] = useState("");
